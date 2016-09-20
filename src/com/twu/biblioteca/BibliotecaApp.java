@@ -2,12 +2,17 @@ package com.twu.biblioteca;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) {
+    private Console console;
 
-        System.out.println("Hello, world!");
+    public static void main() {
+        new BibliotecaApp(new Console()).run();
     }
 
-    public static void run() {
-        throw new UnsupportedOperationException();
+    public BibliotecaApp(Console console){
+        this.console = console;
+    }
+
+    public void run() {
+        console.printLine("Welcome to the Biblioteca App");
     }
 }
