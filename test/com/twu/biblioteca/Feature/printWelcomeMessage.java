@@ -22,7 +22,9 @@ public class printWelcomeMessage {
     @Test
     public void printsAWelcomeMessage() {
         BibliotecaApp.main();
-        assertEquals("Welcome to the Biblioteca App", systemOutRule.getLog());
+        String output = systemOutRule.getLog();
+        String[] strings = output.split("\n");
+        assertEquals("Welcome to the Biblioteca App", strings[0]);
     }
 
 
