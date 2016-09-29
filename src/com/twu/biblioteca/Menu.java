@@ -21,4 +21,8 @@ public class Menu {
     public List<String> getOptions() {
         return options;
     }
+
+    public String matchOption(Integer option) {
+      return options.get(option - 1);
+    };
 }

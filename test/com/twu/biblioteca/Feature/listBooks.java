@@ -24,11 +24,10 @@ public class listBooks {
 
     @Test
     public void ListBooks() {
+        systemInMock.provideLines("1");
         BibliotecaApp.main();
-        systemInMock.provideLines("List Books");
         String output = systemOutRule.getLog();
-        String[] strings = output.split("\n");
-        assertEquals(true, Arrays.asList(strings).contains("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\n"));
+        assertEquals(true, output.contains("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\n"));
     }
 
 

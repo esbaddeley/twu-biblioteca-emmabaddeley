@@ -39,20 +39,6 @@ public class BibliotecaTest {
     }
 
 
-//    @Test
-//    public void listBooks(){
-//        when(bookShelf.listBooks()).thenReturn(books);
-//        app.run();
-//        verify(bookShelf).listBooks();
-////        verify(console).printLine("Welcome to the Biblioteca App\nThe Prince\nPride and Prejudice\nAnimal Farm\nWatership Down\nHarry Potter and the Philosophers Stone\n");
-//    }
-
-//    @Test
-//    public void printBookList(){
-//        when(bookShelf.listBooks()).thenReturn(books);
-//        app.run();
-//        verify(console).printLine("Welcome to the Biblioteca App\nBook Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
-//    }
 
     @Test
     public void printMenu(){
@@ -61,6 +47,14 @@ public class BibliotecaTest {
         verify(console).printLine("Welcome to the Biblioteca App\n");
         verify(console).printLine("Please select a Menu Choice");
         verify(console).printLine("List Books");
+    }
+
+    @Test
+    public void listBooksWhenSelected(){
+        when(menu.matchOption(1)).thenReturn("List Books");
+        when(bookShelf.listBooks()).thenReturn(books);
+        biblioteca.matchMenuItem("1");
+        verify(console).printLine("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
     }
 
 

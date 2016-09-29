@@ -16,4 +16,10 @@ public class MenuTest {
         assertEquals(true, menu.getOptions().contains("List Books"));
 
     }
+
+    @Test
+    public void matchOption() throws Exception {
+        Menu menu = new Menu("List Books");
+        assertEquals(menu.matchOption(1), "List Books");
+    }
 }
