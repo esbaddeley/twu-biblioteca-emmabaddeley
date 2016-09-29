@@ -20,8 +20,8 @@ public class showMenu {
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         String[] strings = output.split("\n");
-        assertEquals("Please select a Menu Choice", strings[1]);
-        assertEquals("List Books", strings[2]);
+        assertEquals("Please select a Menu Choice", strings[2]);
+        assertEquals("List Books", strings[3]);
     }
 
 
