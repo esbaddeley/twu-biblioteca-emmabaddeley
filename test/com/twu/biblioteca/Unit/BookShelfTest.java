@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class BookShelfTest {
 
-    List<String> books = Arrays.asList("The Prince", "Pride and Prejudice", "Animal Farm", "Watership Down", "Harry Potter and the Philosophers Stone");
+    List<String> books = Arrays.asList("The Prince || Niccolo Machiavelli || 1532" , "Pride and Prejudice || Jane Austen || 1813", "Animal Farm || George Orwell || 1945", "Watership Down || Richard Adams || 1972", "Harry Potter and the Philosophers Stone || J.K Rowling || 1997");
 
 
     @Test
