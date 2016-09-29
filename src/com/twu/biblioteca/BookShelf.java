@@ -7,11 +7,13 @@ import java.util.List;
  */
 public class BookShelf {
 
-    public BookShelf(List<String> books) {
+    private List<String> books;
 
+    public BookShelf(List<String> books) {
+    this.books = books;
     }
 
     public List<String> listBooks() {
-        throw new UnsupportedOperationException();
+        return books;
     }
 }

@@ -20,5 +20,10 @@ public class BibliotecaApp {
 
     public void run() {
         console.printLine("Welcome to the Biblioteca App");
+
+        for (String book : bookShelf.listBooks() ) {
+            console.printLine(book);
+        }
+
     }
 }

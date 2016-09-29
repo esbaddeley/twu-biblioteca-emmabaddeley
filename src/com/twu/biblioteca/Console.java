@@ -5,6 +5,6 @@ package com.twu.biblioteca;
  */
 public class Console {
     public void printLine(String s) {
-        System.out.print(s);
+        System.out.println(s);
     }
 }
