@@ -23,7 +23,7 @@ public class printWelcomeMessage {
     public void printsAWelcomeMessage() {
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        String[] strings = output.split("\n\n");
+        String[] strings = output.split("\n");
         assertEquals("Welcome to the Biblioteca App", strings[0]);
     }
 
