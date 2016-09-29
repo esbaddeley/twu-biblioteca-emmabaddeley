@@ -48,6 +48,14 @@ public class BibliotecaAppTest {
         verify(console).printLine("Welcome to the Biblioteca App\nBook Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
     }
 
+    @Test
+    public void printMenu(){
+        BibliotecaApp app = new BibliotecaApp(console, bookShelf);
+        app.run();
+        verify(console).printLine("Please select a Menu Choice");
+        verify(console).printLine("List Books");
+    }
+
 
 
 }
