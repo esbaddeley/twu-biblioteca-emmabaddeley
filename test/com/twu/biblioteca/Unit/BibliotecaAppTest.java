@@ -31,14 +31,6 @@ public class BibliotecaAppTest {
     BookShelf bookShelf = mock(BookShelf.class);
 
 
-
-    @Test
-    public void printsAWelcomeMessage() {
-        BibliotecaApp app = new BibliotecaApp(console, bookShelf);
-        app.run();
-        verify(console).printLine("Welcome to the Biblioteca App");
-    }
-
     @Test
     public void listBooks(){
         BibliotecaApp app = new BibliotecaApp(console, bookShelf);
