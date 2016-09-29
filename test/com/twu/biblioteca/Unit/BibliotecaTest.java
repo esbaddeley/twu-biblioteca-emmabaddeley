@@ -48,17 +48,6 @@ public class BibliotecaTest {
         verify(console).printLine("Please select a Menu Choice");
         verify(console).printLine("List Books");
     }
-
-    @Test
-    public void listBooksWhenSelected(){
-        when(menu.matchOption(1)).thenReturn("List Books");
-        when(bookShelf.listBooks()).thenReturn(books);
-        biblioteca.matchMenuItem("1");
-        verify(console).printLine("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
-    }
-
-
-
-
+    
 
 }

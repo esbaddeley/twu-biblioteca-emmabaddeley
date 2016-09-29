@@ -29,31 +29,38 @@ public class Biblioteca {
         printWelcomeMessage();
         showMenuOptions();
         try {
-            String choice = GetUserChoice();
-            matchMenuItem(choice);
+            String choice = GetUserChoice(reader);
+            switch (choice) {
+                case "1":
+                    printMessage(formatBookList());
+                    break;
+                default:
+                    printMessage("Invalid Menu Option, please try again");
+
+                }
 
         } catch (IOException e) {
+            printMessage("Problem with input");
             e.printStackTrace();
         }
 
     }
 
-    public void matchMenuItem(String userInput) {
-        String action = menu.matchOption(Integer.parseInt(userInput.trim()));
-        if (action == "List Books")
-            { console.printLine(formatBookList()); }
-    }
 
-    private String GetUserChoice() throws IOException {
+    private String GetUserChoice(BufferedReader reader) throws IOException {
         return reader.readLine();
     }
 
+    private void printMessage(String s) {
+        console.printLine(s);
+    }
+
     private void printWelcomeMessage(){
-        console.printLine("Welcome to the Biblioteca App");
+        printMessage("Welcome to the Biblioteca App");
     }
 
     private void showMenuOptions(){
-        console.printLine("Please select a Menu Choice");
+        printMessage("Please select a Menu Choice");
         console.printLine(formatOptions(menu.getOptions()));
     }
 
