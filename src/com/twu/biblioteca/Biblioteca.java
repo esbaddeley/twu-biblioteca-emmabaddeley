@@ -40,6 +40,7 @@ public class Biblioteca {
                     case "2":
                         try {
                             bookShelf.checkOutBook(bookTitlePrompt());
+                            printMessage("Thank you! Enjoy the book");
                         } catch (NoBookException e) {
                             printMessage(e.showErrorMessage());
                         }

@@ -63,19 +63,42 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void printTheBookList () throws IOException {
-        when(reader.readLine()).thenReturn("2", "3");
+    public void printTheBookList() throws IOException {
+        when(reader.readLine()).thenReturn("1", "3");
         when(menu.getOptions()).thenReturn(menuOptions);
         when(bookShelf.listBooks()).thenReturn(books);
         biblioteca.run();
-        verify(console).printLine("Welcome to the Biblioteca App");
-        verify(console, times(2)).printLine("Please select a Menu Choice");
-        verify(console, times(2)).printLine("1 - List Books");
-        verify(console, times(2)).printLine("2 - Checkout a Book");
-        verify(console, times(2)).printLine("3 - Quit the Program");
-        verify(console).printLine("Book Title || Author || Year Published\\nThe Prince || Niccolo Machiavelli || 1532\\nPride and Prejudice || Jane Austen || 1813\\nAnimal Farm || George Orwell || 1945\\nWatership Down || Richard Adams || 1972\\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\\n\"));\n");
+        verify(console).printLine("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
+    }
+
+    @Test
+    public void promptForCheckOutChoice() throws IOException {
+        when(reader.readLine()).thenReturn("2", "3");
+        when(menu.getOptions()).thenReturn(menuOptions);
+        biblioteca.run();
+        verify(console).printLine("Please enter the title of the book you'd like to checkout");
 
     }
+
+    @Test
+    public void checksOutBook() throws IOException, NoBookException {
+        when(reader.readLine()).thenReturn("2", "The Prince", "3");
+        when(menu.getOptions()).thenReturn(menuOptions);
+        biblioteca.run();
+        verify(bookShelf).checkOutBook("The Prince");
+    }
+
+    @Test
+    public void successfulCheckoutMessage() throws IOException, NoBookException {
+        when(reader.readLine()).thenReturn("2", "The Prince", "3");
+        when(menu.getOptions()).thenReturn(menuOptions);
+        biblioteca.run();
+        verify(console).printLine("Thank you! Enjoy the book");
+    }
+
+
+
+
 
 
 

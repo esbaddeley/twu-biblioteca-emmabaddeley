@@ -44,4 +44,12 @@ public class checkingOutBooks {
         assertEquals(false, output.contains("The Prince || Niccolo Machiavelli || 1532"));
     }
 
+    @Test
+    public void successfulCheckOutMessage() {
+        systemInMock.provideLines("2", "The Prince", "1", "3");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("Thank you! Enjoy the book"));
+    }
+
 }
