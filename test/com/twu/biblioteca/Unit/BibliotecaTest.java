@@ -25,9 +25,8 @@ import static org.mockito.Mockito.*;
 
 public class BibliotecaTest {
 
-    private List<String> books = Arrays.asList("The Prince || Niccolo Machiavelli || 1532" , "Pride and Prejudice || Jane Austen || 1813", "Animal Farm || George Orwell || 1945", "Watership Down || Richard Adams || 1972", "Harry Potter and the Philosophers Stone || J.K Rowling || 1997");
-    private List<String> menuOptions = Arrays.asList("1 - List Books", "2 - Checkout a Book", "3 - Return a Book", "4 - Quit the Program");
-
+//    private List<String> books = Arrays.asList("The Prince || Niccolo Machiavelli || 1532" , "Pride and Prejudice || Jane Austen || 1813", "Animal Farm || George Orwell || 1945", "Watership Down || Richard Adams || 1972", "Harry Potter and the Philosophers Stone || J.K Rowling || 1997");
+        private String bookString =  "Book Title || Author || Year Published\nAnimal Farm || George Orwell || 1945\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\nThe Prince || Niccolo Machiavelli || 1532\nWatership Down || Richard Adams || 1972\nPride and Prejudice || Jane Austen || 1813";
 
     @Mock Console console;
     @Mock Menu menu;
@@ -54,9 +53,9 @@ public class BibliotecaTest {
     @Test
     public void printTheBookList() throws IOException {
         when(reader.readLine()).thenReturn("1", "4");
-        when(bookShelf.listBooks()).thenReturn(books);
+        when(bookShelf.listBooks()).thenReturn(bookString);
         biblioteca.run();
-        verify(console).printLine("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997");
+        verify(console).printLine("Book Title || Author || Year Published\nAnimal Farm || George Orwell || 1945\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\nThe Prince || Niccolo Machiavelli || 1532\nWatership Down || Richard Adams || 1972\nPride and Prejudice || Jane Austen || 1813");
     }
 
     @Test

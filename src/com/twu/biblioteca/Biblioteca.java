@@ -36,7 +36,7 @@ public class Biblioteca {
                 choice = GetUserChoice();
                 switch (choice) {
                     case "1":
-                        printMessage(formatBookList());
+                        printMessage(bookShelf.listBooks());
                         break;
                     case "2":
                         try {
@@ -89,19 +89,13 @@ public class Biblioteca {
         printMessage("Welcome to the Biblioteca App");
     }
 
-//    private void showMenuOptions(){
-//        printMessage("Please select a Menu Choice");
-//        for (String menuOption : menu.getOptions()) {
-//            printMessage(menuOption);
-//        }
+
+//    private String formatOptions(List<String> options){
+//        return StringUtils.join(options, "\n");
 //    }
-
-    private String formatOptions(List<String> options){
-        return StringUtils.join(options, "\n");
-    }
-
-    private String formatBookList(){
-        return COLUMNHEADERS + formatOptions(bookShelf.listBooks());
-    }
+//
+//    private String formatBookList(){
+//        return COLUMNHEADERS + formatOptions(bookShelf.listBooks());
+//    }
 
 }
