@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Menu {
 
+    private static final String MENU_CHOICE_PROMPT = "Please select a Menu Choice" ;
     List<String> options;
 
 
@@ -18,8 +19,12 @@ public class Menu {
 
     }
 
-    public List<String> getOptions() {
-        return options;
+    public void showOptions(Console console) {
+        console.printLine(MENU_CHOICE_PROMPT);
+        for (String menuOption : options ) {
+            console.printLine(menuOption);
+        }
+
     }
 
     public String matchOption(Integer option) {

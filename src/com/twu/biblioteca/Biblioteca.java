@@ -27,10 +27,11 @@ public class Biblioteca {
 
     public void run() {
         printWelcomeMessage();
+        menu.showOptions(console);
         String choice = "";
         do {
             choice = "";
-            showMenuOptions();
+            menu.showOptions(console);;
             try {
                 choice = GetUserChoice();
                 switch (choice) {
@@ -88,12 +89,12 @@ public class Biblioteca {
         printMessage("Welcome to the Biblioteca App");
     }
 
-    private void showMenuOptions(){
-        printMessage("Please select a Menu Choice");
-        for (String menuOption : menu.getOptions()) {
-            printMessage(menuOption);
-        }
-    }
+//    private void showMenuOptions(){
+//        printMessage("Please select a Menu Choice");
+//        for (String menuOption : menu.getOptions()) {
+//            printMessage(menuOption);
+//        }
+//    }
 
     private String formatOptions(List<String> options){
         return StringUtils.join(options, "\n");
