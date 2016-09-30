@@ -27,24 +27,33 @@ public class Biblioteca {
 
     public void run() {
         printWelcomeMessage();
-        showMenuOptions();
-        try {
-            String choice = GetUserChoice(reader);
-            switch (choice) {
-                case "1":
-                    printMessage(formatBookList());
-                    break;
-                default:
-                    printMessage("Invalid Menu Option, please try again");
-
+        String choice = "";
+        do {
+            choice = "";
+            showMenuOptions();
+            try {
+                choice = GetUserChoice(reader);
+                switch (choice) {
+                    case "1":
+                        printMessage(formatBookList());
+                        break;
+                    case "3":
+                        printMessage("Quitting the Program");
+                        break;
+                    default:
+                        printMessage("Invalid Menu Option, please try again");
                 }
 
-        } catch (IOException e) {
-            printMessage("Problem with input");
-            e.printStackTrace();
-        }
+            } catch (IOException e) {
+                printMessage("Problem with input");
+                e.printStackTrace();
+            }
+        } while (!choice.equals("3"));
 
     }
+
+
+
 
 
     private String GetUserChoice(BufferedReader reader) throws IOException {
