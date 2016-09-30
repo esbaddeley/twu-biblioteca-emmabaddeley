@@ -8,7 +8,7 @@ import com.twu.biblioteca.Console;
 abstract public class MenuOptionMaster implements MenuOption {
 
     String name;
-    private Console output;
+    public Console output;
 
     public MenuOptionMaster(String name, Console console){
         this.name = name;

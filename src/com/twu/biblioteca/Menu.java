@@ -16,10 +16,8 @@ public class Menu {
     List<? extends MenuOption> options;
 
 
-    public Menu(BookShelf bookShelf,String... options ) {
-//        this.options = Arrays.asList(options);
-        this.bookShelf = bookShelf;
-
+    public Menu(List<MenuOption> options) {
+      this.options = options;
     }
 
     public void showOptions(Console console) {

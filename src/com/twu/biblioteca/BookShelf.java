@@ -52,6 +52,7 @@ public class BookShelf {
     };
 
     private String formatOptions(List<String> options){
+
         return StringUtils.join(options, "\n");
     }
 

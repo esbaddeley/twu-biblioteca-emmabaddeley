@@ -36,11 +36,13 @@ public class MenuTest {
 
     }
 
-    @Test
-    public void executeMenuOption() {
-        Menu menu = new Menu(bookShelf, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - Quit the Program");
-
-    }
+//    @Test
+//    public void executeMenuOption() {
+//        Menu menu = new Menu(bookShelf, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - Quit the Program");
+//        menu.executeOption("1", console);
+//        verify()
+//
+//    }
 
 
 

@@ -9,7 +9,6 @@ import com.twu.biblioteca.Console;
 public class ListOption extends MenuOptionMaster implements MenuOption {
 
     BookShelf bookShelf;
-    private Console output;
 
 
     public ListOption(String name, Console console, BookShelf bookShelf){
@@ -19,6 +18,6 @@ public class ListOption extends MenuOptionMaster implements MenuOption {
 
     @Override
     public void run() {
-
+        output.printLine(bookShelf.listBooks());
     }
 }
