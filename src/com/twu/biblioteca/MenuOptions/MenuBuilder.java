@@ -26,7 +26,7 @@ public class MenuBuilder {
         this.reader = reader;
     }
 
-    public List<? extends MenuOption> build() {
+    public List<MenuOption> build() {
         List<MenuOption> menuOptions = new ArrayList<MenuOption>();
         menuOptions.add(new ListOption(options.get(0), console, bookShelf));
         menuOptions.add(new CheckOutOption(options.get(1), console, bookShelf, reader));

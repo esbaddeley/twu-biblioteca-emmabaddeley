@@ -27,7 +27,7 @@ public class keepPromptingMenuOptions {
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         String[] strings = output.split("\n");
-        assertEquals(true, strings[12].contains("Please select a Menu Choice"));
+        assertEquals(true, strings[13].contains("Please select a Menu Choice"));
     }
 
     @Test

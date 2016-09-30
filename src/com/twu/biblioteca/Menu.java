@@ -12,8 +12,10 @@ import java.util.List;
 public class Menu {
 
     private static final String MENU_CHOICE_PROMPT = "Please select a Menu Choice" ;
+    private static final String INVALID_MENU_OPTION = "Invalid Menu Option, please try again";
+
     BookShelf bookShelf;
-    List<? extends MenuOption> options;
+    List<MenuOption> options;
 
 
     public Menu(List<MenuOption> options) {
@@ -37,7 +39,9 @@ public class Menu {
         MenuOption option = options.get(Integer.parseInt(choice) - 1);
         option.run();
         } catch (NullPointerException e) {
-            console.printLine("Invalid Menu Option, please try again");
+            console.printLine(INVALID_MENU_OPTION);
+        } catch (NumberFormatException n){
+            console.printLine(INVALID_MENU_OPTION);
         }
     }
 

@@ -18,16 +18,14 @@ public class Biblioteca {
     private Menu menu;
     private BufferedReader reader;
 
-    public Biblioteca(Menu menu){
+    public Biblioteca(Console console, Menu menu, BufferedReader reader){
         this.console = console;
         this.menu = menu;
         this.reader = reader;
     }
 
-
     public void run() {
         printWelcomeMessage();
-        menu.showOptions(console);
         String choice = "";
         do {
             choice = "";
@@ -36,18 +34,11 @@ public class Biblioteca {
                 choice = GetUserChoice();
                 menu.executeOption(choice, console);
             } catch (IOException e) {
-                printMessage("Problem with input");
                 e.printStackTrace();
             }
         } while (!choice.equals("4"));
-
     }
 
-
-    private String bookTitlePrompt(String message) throws IOException {
-        printMessage(message);
-        return GetUserChoice();
-    }
 
     private String GetUserChoice() throws IOException {
         return reader.readLine();
