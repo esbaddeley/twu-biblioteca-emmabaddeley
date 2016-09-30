@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.sun.javafx.tools.packager.bundlers.RelativeFileSet;
+import com.twu.biblioteca.MenuOptions.MenuOption;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,25 +12,37 @@ import java.util.List;
 public class Menu {
 
     private static final String MENU_CHOICE_PROMPT = "Please select a Menu Choice" ;
-    List<String> options;
+    BookShelf bookShelf;
+    List<? extends MenuOption> options;
 
 
-    public Menu(String... options) {
-        this.options = Arrays.asList(options);
+    public Menu(BookShelf bookShelf,String... options ) {
+//        this.options = Arrays.asList(options);
+        this.bookShelf = bookShelf;
 
     }
 
     public void showOptions(Console console) {
         console.printLine(MENU_CHOICE_PROMPT);
-        for (String menuOption : options ) {
-            console.printLine(menuOption);
+        for (MenuOption menuOption : options ) {
+            console.printLine(menuOption.getName());
         }
 
     }
 
-    public String matchOption(Integer option) {
-      return options.get(option - 1);
-    };
+//    public String matchOption(Integer option) {
+//      return options.get(option - 1);
+//    };
+
+    public void executeOption(String choice, Console console) {
+        try {
+        MenuOption option = options.get(Integer.parseInt(choice) - 1);
+        option.run();
+        } catch (NullPointerException e) {
+            console.printLine("Invalid Menu Option, please try again");
+        }
+    }
+
 
 
 }
