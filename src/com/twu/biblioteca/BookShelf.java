@@ -27,11 +27,11 @@ public class BookShelf {
     }
 
     public void checkOutBook(String title) throws NoBookException {
-         findAndCheckoutBook(title);
+        findBook(title).checkOut();
     }
 
-    private void findAndCheckoutBook(String title) throws NoBookException {
-        findBook(title).checkOut();
+    public void returnBook(String title) throws NoBookException {
+            findBook(title).returnBook();
     }
 
     private void createBookShelf(List<String> booksToAdd){
@@ -40,15 +40,16 @@ public class BookShelf {
             books.put(newBook.getTitle(), newBook);
         }
     }
-
     private Book findBook(String title) throws NoBookException {
         Book book = books.get(title);
         if (book != null) {
             return book;
         }
         throw new NoBookException();
-
     };
+
+    private void findAndReturnBook(String title) {
+    }
 
 
 }

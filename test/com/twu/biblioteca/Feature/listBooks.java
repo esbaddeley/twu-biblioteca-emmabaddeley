@@ -24,7 +24,7 @@ public class listBooks {
 
     @Test
     public void ListBooks() {
-        systemInMock.provideLines("1");
+        systemInMock.provideLines("1", "4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Book Title || Author || Year Published\nThe Prince || Niccolo Machiavelli || 1532\nPride and Prejudice || Jane Austen || 1813\nAnimal Farm || George Orwell || 1945\nWatership Down || Richard Adams || 1972\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\n"));

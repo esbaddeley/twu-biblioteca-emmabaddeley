@@ -26,6 +26,14 @@ public class BookTest {
     }
 
     @Test
+    public void bookCanBeReturned() throws NoBookException {
+        Book book = new Book(detailString);
+        book.checkOut();
+        book.returnBook();
+        assertEquals(true, book.isCheckedIn());
+    }
+
+    @Test
     public void returnsTheDetailsString(){
         Book book = new Book(detailString);
         assertEquals(detailString, book.getDetails());

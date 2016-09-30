@@ -39,4 +39,10 @@ public class Book {
     public String getDetails() {
          return StringUtils.join((Arrays.asList(title, author, yearPublished)), " || ");
     }
+
+    public void returnBook() throws NoBookException {
+        if (checkedIn) {throw new NoBookException();}
+        else {checkedIn = true;}
+
+    }
 }

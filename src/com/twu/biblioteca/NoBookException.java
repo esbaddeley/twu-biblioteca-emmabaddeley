@@ -5,8 +5,12 @@ package com.twu.biblioteca;
  */
 public class NoBookException extends Exception {
 
-    public String showErrorMessage(){
+    public String showCheckOutErrorMessage(){
         return "That book is not available";
+    }
+
+    public String showReturnErrorMessage(){
+        return "That is not a valid book to return";
     }
 
 }

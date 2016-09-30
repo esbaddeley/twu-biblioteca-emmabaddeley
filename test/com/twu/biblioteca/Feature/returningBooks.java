@@ -12,7 +12,7 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emp
 /**
  * Created by emmabaddeley on 30/09/2016.
  */
-public class checkingOutBooks {
+public class returningBooks {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -21,43 +21,44 @@ public class checkingOutBooks {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void hasACheckingOutBookMenuOption(){
+    public void hasAReturningBookMenuOption(){
         systemInMock.provideLines("4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Checkout a Book"));
+        assertEquals(true, output.contains("Return a Book"));
     }
 
     @Test
-    public void promptsTheUserForATitle () {
-        systemInMock.provideLines("2", "The Prince", "1", "4");
+    public void promptsTheUserForATitle(){
+        systemInMock.provideLines("3", "The Prince", "4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Please enter the title of the book you'd like to checkout"));
+        assertEquals(true, output.contains("Please enter the title of the book you'd like to return"));
     }
 
     @Test
-    public void bookNoLongerAppearsInList() {
-        systemInMock.provideLines("2", "The Prince", "1", "4");
+    public void returnedBookAppearsInList() {
+        systemInMock.provideLines("2", "The Prince", "1", "3", "The Prince", "1", "4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(false, output.contains("The Prince || Niccolo Machiavelli || 1532"));
+        assertEquals(true, output.contains("The Prince || Niccolo Machiavelli || 1532"));
     }
 
     @Test
-    public void successfulCheckOutMessage() {
-        systemInMock.provideLines("2", "The Prince", "1", "4");
+    public void successfulReturnMessage() {
+        systemInMock.provideLines("2", "The Prince", "3", "The Prince", "4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Thank you! Enjoy the book"));
+        assertEquals(true, output.contains("Thank you for returning the book"));
     }
 
     @Test
-    public void unsuccessfulCheckoutMessage() {
-        systemInMock.provideLines("2", "The Frog", "4");
+    public void unsuccessfulReturnMessage() {
+        systemInMock.provideLines("3", "The Prince", "4");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("That book is not available"));
+        assertEquals(true, output.contains("That is not a valid book to return"));
     }
+
 
 }

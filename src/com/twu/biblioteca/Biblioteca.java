@@ -39,13 +39,22 @@ public class Biblioteca {
                         break;
                     case "2":
                         try {
-                            bookShelf.checkOutBook(bookTitlePrompt());
+                            bookShelf.checkOutBook(bookTitlePrompt("Please enter the title of the book you'd like to checkout"));
                             printMessage("Thank you! Enjoy the book");
                         } catch (NoBookException e) {
-                            printMessage(e.showErrorMessage());
+                            printMessage(e.showCheckOutErrorMessage());
                         }
                         break;
                     case "3":
+                        try{
+                            bookShelf.returnBook(bookTitlePrompt("Please enter the title of the book you'd like to return"));
+                            printMessage("Thank you for returning the book");
+                        } catch (NoBookException e) {
+                            printMessage(e.showReturnErrorMessage());
+                        }
+
+                        break;
+                    case "4":
                         printMessage("Quitting the Program");
                         break;
                     default:
@@ -56,14 +65,14 @@ public class Biblioteca {
                 printMessage("Problem with input");
                 e.printStackTrace();
             }
-        } while (!choice.equals("3"));
+        } while (!choice.equals("4"));
 
     }
 
 
 
-    private String bookTitlePrompt() throws IOException {
-        printMessage("Please enter the title of the book you'd like to checkout");
+    private String bookTitlePrompt(String message) throws IOException {
+        printMessage(message);
         return GetUserChoice();
     }
 
@@ -81,7 +90,6 @@ public class Biblioteca {
 
     private void showMenuOptions(){
         printMessage("Please select a Menu Choice");
-//        console.printLine(formatOptions(menu.getOptions()));
         for (String menuOption : menu.getOptions()) {
             printMessage(menuOption);
         }
