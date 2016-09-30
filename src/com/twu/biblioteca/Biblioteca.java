@@ -18,11 +18,11 @@ public class Biblioteca {
     private Menu menu;
     private BufferedReader reader;
 
-    public Biblioteca(Console console, BookShelf bookShelf, Menu menu){
+    public Biblioteca(Console console, BookShelf bookShelf, Menu menu, BufferedReader reader){
         this.console = console;
         this.bookShelf = bookShelf;
         this.menu = menu;
-        this.reader = new BufferedReader(new InputStreamReader(System.in));
+        this.reader = reader;
     }
 
     public void run() {
@@ -32,11 +32,13 @@ public class Biblioteca {
             choice = "";
             showMenuOptions();
             try {
-                choice = GetUserChoice(reader);
+                choice = GetUserChoice();
                 switch (choice) {
                     case "1":
                         printMessage(formatBookList());
                         break;
+                    case "2":
+                        bookShelf.checkOutBook(bookTitlePrompt());
                     case "3":
                         printMessage("Quitting the Program");
                         break;
@@ -54,9 +56,12 @@ public class Biblioteca {
 
 
 
+    private String bookTitlePrompt() throws IOException {
+        printMessage("Please enter the title of the book you'd like to checkout");
+        return GetUserChoice();
+    }
 
-
-    private String GetUserChoice(BufferedReader reader) throws IOException {
+    private String GetUserChoice() throws IOException {
         return reader.readLine();
     }
 
@@ -70,7 +75,10 @@ public class Biblioteca {
 
     private void showMenuOptions(){
         printMessage("Please select a Menu Choice");
-        console.printLine(formatOptions(menu.getOptions()));
+//        console.printLine(formatOptions(menu.getOptions()));
+        for (String menuOption : menu.getOptions()) {
+            printMessage(menuOption);
+        }
     }
 
     private String formatOptions(List<String> options){

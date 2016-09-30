@@ -23,5 +23,13 @@ public class BookShelfTest {
         assertEquals(bookShelf.listBooks(), books);
     }
 
+    @Test
+    public void checksOutABook(){
+        BookShelf bookShelf = new BookShelf(books);
+        bookShelf.checkOutBook("The Prince");
+//        assertEquals(false, bookShelf.hasBook("The Prince"));
+        assertEquals(false, (bookShelf.listBooks()).contains("The Prince || Niccolo Machiavelli || 1532"));
+    }
+
 
 }

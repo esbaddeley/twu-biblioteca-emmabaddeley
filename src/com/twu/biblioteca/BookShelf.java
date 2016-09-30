@@ -16,4 +16,12 @@ public class BookShelf {
     public List<String> listBooks() {
         return books;
     }
+
+    public void checkOutBook(String s) {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean hasBook(String s) {
+        throw new UnsupportedOperationException();
+    }
 }
