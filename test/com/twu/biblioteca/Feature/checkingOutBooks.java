@@ -21,7 +21,7 @@ public class checkingOutBooks {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void hasAcheckingOutBookMenuOption(){
+    public void hasACheckingOutBookMenuOption(){
         systemInMock.provideLines("3");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
@@ -30,10 +30,18 @@ public class checkingOutBooks {
 
     @Test
     public void promptsTheUserForATitle () {
-        systemInMock.provideLines("2", "3");
+        systemInMock.provideLines("2", "The Prince", "1", "3");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Please enter the title of the book you'd like to checkout"));
+    }
+
+    @Test
+    public void bookNoLongerAppearsInList() {
+        systemInMock.provideLines("2", "The Prince", "1", "3");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(false, output.contains("The Prince || Niccolo Machiavelli || 1532"));
     }
 
 }

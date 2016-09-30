@@ -38,7 +38,12 @@ public class Biblioteca {
                         printMessage(formatBookList());
                         break;
                     case "2":
-                        bookShelf.checkOutBook(bookTitlePrompt());
+                        try {
+                            bookShelf.checkOutBook(bookTitlePrompt());
+                        } catch (NoBookException e) {
+                            printMessage(e.showErrorMessage());
+                        }
+                        break;
                     case "3":
                         printMessage("Quitting the Program");
                         break;

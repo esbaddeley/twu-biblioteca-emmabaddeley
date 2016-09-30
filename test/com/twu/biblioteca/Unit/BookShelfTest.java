@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.BookShelf;
+import com.twu.biblioteca.NoBookException;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -24,10 +25,9 @@ public class BookShelfTest {
     }
 
     @Test
-    public void checksOutABook(){
+    public void checksOutABook() throws NoBookException {
         BookShelf bookShelf = new BookShelf(books);
         bookShelf.checkOutBook("The Prince");
-//        assertEquals(false, bookShelf.hasBook("The Prince"));
         assertEquals(false, (bookShelf.listBooks()).contains("The Prince || Niccolo Machiavelli || 1532"));
     }
 
