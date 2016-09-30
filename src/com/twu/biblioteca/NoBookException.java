@@ -6,7 +6,7 @@ package com.twu.biblioteca;
 public class NoBookException extends Exception {
 
     public String showErrorMessage(){
-        return "No Book";
+        return "That book is not available";
     }
 
 }

@@ -96,6 +96,15 @@ public class BibliotecaTest {
         verify(console).printLine("Thank you! Enjoy the book");
     }
 
+    @Test
+    public void unsuccessfulCheckoutMessage() throws IOException, NoBookException{
+        when(reader.readLine()).thenReturn("2", "The Frog", "3");
+        when(menu.getOptions()).thenReturn(menuOptions);
+        doThrow(new NoBookException()).when(bookShelf).checkOutBook("The Frog");
+        biblioteca.run();
+        verify(console).printLine("That book is not available");
+    }
+
 
 
 

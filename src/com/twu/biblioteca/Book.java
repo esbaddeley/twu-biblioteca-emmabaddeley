@@ -27,8 +27,8 @@ public class Book {
         return title;
     }
 
-    public void checkOut() throws BookCheckedOutException {
-        if (!checkedIn) {throw new BookCheckedOutException();}
+    public void checkOut() throws NoBookException {
+        if (!checkedIn) {throw new NoBookException();}
         else { checkedIn = false;}
     }
 

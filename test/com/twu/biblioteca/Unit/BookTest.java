@@ -1,7 +1,7 @@
 package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.Book;
-import com.twu.biblioteca.BookCheckedOutException;
+import com.twu.biblioteca.NoBookException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +19,7 @@ public class BookTest {
     }
 
     @Test
-    public void bookCanBeCheckedOut() throws BookCheckedOutException {
+    public void bookCanBeCheckedOut() throws NoBookException {
         Book book = new Book(detailString);
         book.checkOut();
         assertEquals(false, book.isCheckedIn());

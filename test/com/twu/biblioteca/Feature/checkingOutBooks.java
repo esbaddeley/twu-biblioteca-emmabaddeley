@@ -52,4 +52,12 @@ public class checkingOutBooks {
         assertEquals(true, output.contains("Thank you! Enjoy the book"));
     }
 
+    @Test
+    public void unsuccessfulCheckoutMessage() {
+        systemInMock.provideLines("2", "The Frog", "3");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("That book is not available"));
+    }
+
 }
