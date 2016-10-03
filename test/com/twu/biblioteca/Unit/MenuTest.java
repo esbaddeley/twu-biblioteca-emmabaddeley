@@ -44,13 +44,14 @@ public class MenuTest {
         menuOptions.add(menuOption);
         menuOptions.add(menuOption);
         menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
     }
 
 
     @Test
     public void showAllMenuOptions() {
         Menu menu = new Menu(menuOptions);
-        when(menuOption.getName()).thenReturn("1 - List Books", "2 - Checkout a Book", "3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Quit the Program");
+        when(menuOption.getName()).thenReturn("1 - List Books", "2 - Checkout a Book", "3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Log In", "7 - Quit the Program");
         menu.showOptions(console);
         verify(console).printLine("Please select a Menu Choice");
         verify(console).printLine("1 - List Books");
@@ -58,7 +59,8 @@ public class MenuTest {
         verify(console).printLine("3 - Return a Book");
         verify(console).printLine("4 - List Movies");
         verify(console).printLine("5 - Checkout a Movie");
-        verify(console).printLine("6 - Quit the Program");
+        verify(console).printLine("6 - Log In");
+        verify(console).printLine("7 - Quit the Program");
 
     }
 

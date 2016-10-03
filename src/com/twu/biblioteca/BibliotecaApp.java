@@ -3,10 +3,13 @@ package com.twu.biblioteca;
 import com.sun.deploy.util.StringUtils;
 import com.twu.biblioteca.MenuOptions.MenuBuilder;
 import com.twu.biblioteca.MenuOptions.MenuOption;
+import com.twu.biblioteca.User.User;
+import com.twu.biblioteca.User.UserSessionManager;
 
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,13 +27,18 @@ public class BibliotecaApp {
         BookShelf bookShelf = new BookShelf(books);
         MovieShelf movieShelf = new MovieShelf(movies);
         Console console = new Console();
+        UserSessionManager userSessionManager = new UserSessionManager(createUsers());
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Return a Movie", "7 - Quit the Program" );
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, userSessionManager, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Return a Movie", "7 - Log In", "8 - Quit the Program" );
         return menuBuilder.build();
     }
 
-
-
+    private static List<User> createUsers() {
+        List<User> users = new ArrayList<>();
+        users.add(new User("123-4567", "password"));
+        users.add(new User("765-4321", "notpassword"));
+        return users;
+    }
 
 
 }

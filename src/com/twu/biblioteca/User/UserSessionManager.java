@@ -1,5 +1,8 @@
 package com.twu.biblioteca.User;
 
+
+import com.twu.biblioteca.Exceptions.NoUserException;
+
 import java.util.List;
 
 /**
@@ -8,16 +11,30 @@ import java.util.List;
 public class UserSessionManager {
 
     private final List<User> users;
+    private User currentUser;
 
     public UserSessionManager(List<User> users){
         this.users = users;
     };
 
-    public void logIn(String s, String password) {
-        throw new UnsupportedOperationException();
+    public void logIn(String number, String password) throws NoUserException {
+        currentUser = findUser(number, password);
+        if (currentUser == null) {
+            throw new NoUserException();
+        }
     }
 
-    public User currentUser() {
-        throw new UnsupportedOperationException();
+    private User findUser(String number, String password) {
+        User foundUser = null;
+        for (User user : users){
+            if (user.credentialsMatch(number, password)) {
+               foundUser = user; 
+            }
+        }
+        return foundUser;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

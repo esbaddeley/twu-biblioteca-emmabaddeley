@@ -5,12 +5,16 @@ package com.twu.biblioteca.User;
  */
 public class User {
 
+    private String libraryNumber;
+    private String password;
+
     public User(String libraryNumber, String password){
-        throw new UnsupportedOperationException();
+        this.libraryNumber = libraryNumber;
+        this.password = password;
     }
 
-    public boolean credentialsMatch(String s, String password) {
-        throw new UnsupportedOperationException();
+    public boolean credentialsMatch(String number, String enteredPassword) {
+        return ((number == libraryNumber) && (password == enteredPassword));
     }
 
 

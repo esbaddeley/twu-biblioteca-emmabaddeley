@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Unit;
 
 import com.sun.tools.javac.util.List;
+import com.twu.biblioteca.Exceptions.NoUserException;
 import com.twu.biblioteca.User.User;
 import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Before;
@@ -34,11 +35,11 @@ public class UserSessionManagerTest {
     }
 
     @Test
-    public void canLogInAUser(){
+    public void canLogInAUser() throws NoUserException {
         UserSessionManager userSessionManager = new UserSessionManager(users);
         when(user.credentialsMatch("123-4567", "password")).thenReturn(true);
         userSessionManager.logIn("123-4567", "password");
-        assertEquals(userSessionManager.currentUser(), user);
+        assertEquals(userSessionManager.getCurrentUser(), user);
     }
 
 
