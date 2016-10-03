@@ -38,4 +38,12 @@ public class UserSessionManager {
     public User getCurrentUser() {
         return currentUser;
     }
+
+    public void logOut() throws NoUserException {
+        if (currentUser != null){
+            currentUser = null;
+        } else {
+            throw new NoUserException();
+        }
+    }
 }

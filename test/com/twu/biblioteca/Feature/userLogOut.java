@@ -27,4 +27,22 @@ public class userLogOut {
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Log Out"));
     }
+
+    @Test
+    public void hasAMessageOnSuccessfulLogOut(){
+        systemInMock.provideLines("7", "123-4567", "password", "8", "9");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("Successfully logged out"));
+    }
+
+    @Test
+    public void hasAMessageOnUnsuccessfulLogOut(){
+        systemInMock.provideLines("8", "9");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("User not logged in"));
+    }
+
+
 }

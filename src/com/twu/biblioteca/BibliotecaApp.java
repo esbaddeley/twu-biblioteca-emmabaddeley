@@ -29,7 +29,7 @@ public class BibliotecaApp {
         Console console = new Console();
         UserSessionManager userSessionManager = new UserSessionManager(createUsers());
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, userSessionManager, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Return a Movie", "7 - Log In", "8 - Quit the Program" );
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, userSessionManager, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Return a Movie", "7 - Log In", "8 - Log Out", "9 - Quit the Program" );
         return menuBuilder.build();
     }
 

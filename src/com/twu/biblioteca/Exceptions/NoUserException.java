@@ -9,4 +9,5 @@ public class NoUserException extends Throwable {
         return "Invalid Login Credentials";
     }
 
+    public String showLogOutErrorMessage() { return "User not logged in"; }
 }

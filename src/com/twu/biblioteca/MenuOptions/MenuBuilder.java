@@ -41,7 +41,8 @@ public class MenuBuilder {
         menuOptions.add(new CheckOutMovieOption(options.get(4), console, movieShelf, reader));
         menuOptions.add(new ReturnMovieOption(options.get(5), console, movieShelf, reader));
         menuOptions.add(new LogInOption(options.get(6), console, userSessionManager, reader));
-        menuOptions.add(new QuitOption(options.get(7), console));
+        menuOptions.add(new LogOutOption(options.get(7), console, userSessionManager, reader));
+        menuOptions.add(new QuitOption(options.get(8), console));
         return menuOptions;
     }
 }

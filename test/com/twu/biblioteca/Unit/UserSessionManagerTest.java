@@ -50,5 +50,12 @@ public class UserSessionManagerTest {
         assertEquals(userSessionManager.logIn("123-4567", "password"), "123-4567");
     }
 
+    @Test
+    public void canLogOutAUser() throws NoUserException {
+        UserSessionManager userSessionManager = new UserSessionManager(users);
+        userSessionManager.logOut();
+        assertEquals(userSessionManager.getCurrentUser(), null);
+    }
+
 
 }
