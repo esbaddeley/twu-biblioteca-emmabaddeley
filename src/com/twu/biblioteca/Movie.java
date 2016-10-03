@@ -34,4 +34,8 @@ public class Movie {
     public boolean isCheckedIn() {
         return checkedIn;
     }
+
+    public void checkOut() {
+        throw new UnsupportedOperationException();
+    }
 }

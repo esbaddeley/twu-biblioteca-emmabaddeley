@@ -21,10 +21,42 @@ public class checkingOutMovies {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void hasACheckingOutBookMenuOption(){
-        systemInMock.provideLines("8");
+    public void hasACheckingOutMovieMenuOption(){
+        systemInMock.provideLines("6");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Checkout a Movie"));
+    }
+
+    @Test
+    public void promptsTheUserForATitle () {
+        systemInMock.provideLines("5", "Sharknado", "4", "6");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("Please enter the title of the movie you'd like to checkout"));
+    }
+
+    @Test
+    public void bookNoLongerAppearsInList() {
+        systemInMock.provideLines("5", "Sharknado", "4", "6");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(false, output.contains("Sharknado || 2013 || Thunder Levin || 1"));
+    }
+
+    @Test
+    public void successfulCheckOutMessage() {
+        systemInMock.provideLines("5", "Sharknado", "6");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("Thank you! Enjoy the movie"));
+    }
+
+    @Test
+    public void unsuccessfulCheckoutMessage() {
+        systemInMock.provideLines("5", "The Frog", "6");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(true, output.contains("That movie is not available"));
     }
 }

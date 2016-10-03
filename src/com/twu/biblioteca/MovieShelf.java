@@ -43,4 +43,8 @@ public class MovieShelf {
             movies.put(newMovie.getName(), newMovie);
         }
     }
+
+    public void checkOutMovie(String movieToCheckout) {
+        throw new UnsupportedOperationException();
+    }
 }

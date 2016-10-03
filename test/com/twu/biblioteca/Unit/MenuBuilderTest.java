@@ -33,7 +33,8 @@ public class MenuBuilderTest {
         assertEquals("2 - Checkout a Book", (menuOptions.get(1)).getName());
         assertEquals("3 - Return a Book", (menuOptions.get(2)).getName());
         assertEquals("4 - List Movies", (menuOptions.get(3)).getName());
-        assertEquals("5 - Quit the Program", (menuOptions.get(4)).getName());
+        assertEquals("5 - Checkout a Movie", (menuOptions.get(4)).getName());
+        assertEquals("6 - Quit the Program", (menuOptions.get(4)).getName());
     }
 
 
