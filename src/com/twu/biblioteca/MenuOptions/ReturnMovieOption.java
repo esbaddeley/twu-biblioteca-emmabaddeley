@@ -4,6 +4,7 @@ import com.twu.biblioteca.Console;
 import com.twu.biblioteca.Exceptions.NoBookException;
 import com.twu.biblioteca.Exceptions.NoMovieException;
 import com.twu.biblioteca.MovieShelf;
+import com.twu.biblioteca.User.UserSessionManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +17,8 @@ public class ReturnMovieOption extends MenuOptionMaster implements MenuOption {
     private final MovieShelf movieShelf;
     private BufferedReader reader;
 
-    public ReturnMovieOption(String name, Console console, MovieShelf movieShelf, BufferedReader reader){
-        super(name, console);
+    public ReturnMovieOption(String name, Console console, UserSessionManager userSessionManager, MovieShelf movieShelf, BufferedReader reader){
+        super(name, console, userSessionManager);
         this.movieShelf = movieShelf;
         this.reader = reader;
     }

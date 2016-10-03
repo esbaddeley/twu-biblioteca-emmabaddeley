@@ -2,6 +2,7 @@ package com.twu.biblioteca.MenuOptions;
 
 import com.twu.biblioteca.*;
 import com.twu.biblioteca.Exceptions.NoMovieException;
+import com.twu.biblioteca.User.UserSessionManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,8 +16,8 @@ public class CheckOutMovieOption extends MenuOptionMaster implements MenuOption 
     private BufferedReader reader;
 
 
-    public CheckOutMovieOption(String name, Console console, MovieShelf movieShelf, BufferedReader reader){
-        super(name, console);
+    public CheckOutMovieOption(String name, Console console, UserSessionManager userSessionManager, MovieShelf movieShelf, BufferedReader reader){
+        super(name, console, userSessionManager);
         this.movieShelf = movieShelf;
         this.reader = reader;
     }

@@ -25,7 +25,9 @@ public class Menu {
     public void showOptions(Console console) {
         console.printLine(MENU_CHOICE_PROMPT);
         for (MenuOption menuOption : options ) {
-            console.printLine(menuOption.getName());
+            if (menuOption.display()){
+                console.printLine(menuOption.getName());
+            }
         }
 
     }

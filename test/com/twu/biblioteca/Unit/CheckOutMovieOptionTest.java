@@ -4,6 +4,7 @@ import com.twu.biblioteca.*;
 import com.twu.biblioteca.Exceptions.NoBookException;
 import com.twu.biblioteca.Exceptions.NoMovieException;
 import com.twu.biblioteca.MenuOptions.CheckOutMovieOption;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,13 +30,15 @@ public class CheckOutMovieOptionTest {
     Console console;
     @Mock
     BufferedReader reader;
+    @Mock
+    UserSessionManager userSessionManager;
 
 
     private CheckOutMovieOption checkOutMovieOption;
 
     @Before
     public void initialize(){
-        checkOutMovieOption = new CheckOutMovieOption("5 - Checkout a Movie", console, movieShelf, reader);
+        checkOutMovieOption = new CheckOutMovieOption("5 - Checkout a Movie", console, userSessionManager, movieShelf, reader);
     }
 
     @Test

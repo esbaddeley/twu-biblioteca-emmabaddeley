@@ -9,5 +9,7 @@ public interface MenuOption {
 
     void run();
 
+    boolean display();
+
 
 }

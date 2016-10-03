@@ -4,6 +4,7 @@ import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.ReturnOption;
 import com.twu.biblioteca.Exceptions.NoBookException;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,12 +30,14 @@ public class ReturnOptionTest {
     Console console;
     @Mock
     BufferedReader reader;
+    @Mock
+    UserSessionManager userSessionManager;
 
     ReturnOption returnOption;
 
     @Before
     public void initialize(){
-        returnOption = new ReturnOption("2 - Checkout a Book", console, bookShelf, reader);
+        returnOption = new ReturnOption("2 - Checkout a Book", console, userSessionManager, bookShelf, reader);
     }
 
 

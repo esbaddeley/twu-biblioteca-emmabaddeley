@@ -11,12 +11,10 @@ import java.io.BufferedReader;
  */
 public class LogOutOption extends MenuOptionMaster implements MenuOption {
 
-    private final UserSessionManager userSessionManager;
     private final BufferedReader reader;
 
     public LogOutOption(String name, Console console, UserSessionManager userSessionManager, BufferedReader reader) {
-        super(name, console);
-        this.userSessionManager = userSessionManager;
+        super(name, console, userSessionManager);
         this.reader = reader;
     }
 
@@ -29,4 +27,5 @@ public class LogOutOption extends MenuOptionMaster implements MenuOption {
             output.printLine(u.showLogOutErrorMessage());
         }
     }
+
 }

@@ -3,6 +3,7 @@ package com.twu.biblioteca.MenuOptions;
 import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.Exceptions.NoBookException;
+import com.twu.biblioteca.User.UserSessionManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,8 +16,8 @@ public class CheckOutOption extends MenuOptionMaster implements MenuOption {
     private final BookShelf bookShelf;
     BufferedReader reader;
 
-    public CheckOutOption(String name, Console console, BookShelf bookShelf, BufferedReader reader){
-        super(name, console);
+    public CheckOutOption(String name, Console console, UserSessionManager userSessionManager, BookShelf bookShelf, BufferedReader reader){
+        super(name, console, userSessionManager);
         this.bookShelf = bookShelf;
         this.reader = reader;
     }

@@ -4,6 +4,7 @@ import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.CheckOutOption;
 import com.twu.biblioteca.Exceptions.NoBookException;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +28,8 @@ public class CheckOutOptionTest {
     @Mock BookShelf bookShelf;
     @Mock Console console;
     @Mock BufferedReader reader;
+    @Mock
+    UserSessionManager userSessionManager;
 
     CheckOutOption checkOutOption;
 
@@ -34,7 +37,7 @@ public class CheckOutOptionTest {
 
     @Before
     public void initialize(){
-        checkOutOption = new CheckOutOption("2 - Checkout a Book", console, bookShelf, reader);
+        checkOutOption = new CheckOutOption("2 - Checkout a Book", console, userSessionManager, bookShelf, reader);
     }
 
     @Test

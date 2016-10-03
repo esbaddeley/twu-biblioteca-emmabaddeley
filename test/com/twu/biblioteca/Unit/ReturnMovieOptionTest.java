@@ -6,6 +6,7 @@ import com.twu.biblioteca.Exceptions.NoMovieException;
 import com.twu.biblioteca.MenuOptions.ReturnMovieOption;
 import com.twu.biblioteca.MenuOptions.ReturnOption;
 import com.twu.biblioteca.MovieShelf;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,12 +32,14 @@ public class ReturnMovieOptionTest {
     Console console;
     @Mock
     BufferedReader reader;
+    @Mock
+    UserSessionManager userSessionManager;
 
     ReturnMovieOption returnMovieOption;
 
     @Before
     public void initialize(){
-        returnMovieOption = new ReturnMovieOption("6 - Return a Book", console, movieShelf, reader);
+        returnMovieOption = new ReturnMovieOption("6 - Return a Book", console, userSessionManager, movieShelf, reader);
     }
 
 

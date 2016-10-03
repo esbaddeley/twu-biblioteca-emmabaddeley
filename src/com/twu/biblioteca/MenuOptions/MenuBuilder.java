@@ -34,15 +34,15 @@ public class MenuBuilder {
 
     public List<MenuOption> build() {
         List<MenuOption> menuOptions = new ArrayList<MenuOption>();
-        menuOptions.add(new ListOption(options.get(0), console, bookShelf));
-        menuOptions.add(new CheckOutOption(options.get(1), console, bookShelf, reader));
-        menuOptions.add(new ReturnOption(options.get(2), console, bookShelf, reader));
-        menuOptions.add(new ListMovieOption(options.get(3), console, movieShelf));
-        menuOptions.add(new CheckOutMovieOption(options.get(4), console, movieShelf, reader));
-        menuOptions.add(new ReturnMovieOption(options.get(5), console, movieShelf, reader));
+        menuOptions.add(new ListOption(options.get(0), console, userSessionManager, bookShelf));
+        menuOptions.add(new CheckOutOption(options.get(1), console, userSessionManager, bookShelf, reader));
+        menuOptions.add(new ReturnOption(options.get(2), console, userSessionManager, bookShelf, reader));
+        menuOptions.add(new ListMovieOption(options.get(3), console, userSessionManager, movieShelf));
+        menuOptions.add(new CheckOutMovieOption(options.get(4), console, userSessionManager, movieShelf, reader));
+        menuOptions.add(new ReturnMovieOption(options.get(5), console, userSessionManager, movieShelf, reader));
         menuOptions.add(new LogInOption(options.get(6), console, userSessionManager, reader));
         menuOptions.add(new LogOutOption(options.get(7), console, userSessionManager, reader));
-        menuOptions.add(new QuitOption(options.get(8), console));
+        menuOptions.add(new QuitOption(options.get(8), console, userSessionManager));
         return menuOptions;
     }
 }

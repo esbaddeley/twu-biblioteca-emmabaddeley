@@ -15,12 +15,11 @@ public class LogInOption extends MenuOptionMaster implements MenuOption {
     private static final String LIBRARY_NUMBER_PROMPT = "Please enter your library number";
     private static final String PASSWORD_PROMPT = "Please enter your password";
     private static final String LOG_IN_SUCCESS = "Successfully logged in as ";
-    private UserSessionManager userSessionManager;
+
     private BufferedReader reader;
 
     public LogInOption(String name, Console console, UserSessionManager userSessionManager, BufferedReader reader) {
-        super(name, console);
-        this.userSessionManager = userSessionManager;
+        super(name, console, userSessionManager);
         this.reader = reader;
     }
 
@@ -35,6 +34,11 @@ public class LogInOption extends MenuOptionMaster implements MenuOption {
         } catch (NoUserException u){
             output.printLine(u.showLoginErrorMessage());
         }
+    }
+
+    @Override
+    public boolean display(){
+        return !userSessionManager.loggedIn();
     }
 
     private String passwordPrompt() throws IOException {

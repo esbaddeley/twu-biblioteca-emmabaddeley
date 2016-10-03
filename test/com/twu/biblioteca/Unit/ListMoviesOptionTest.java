@@ -4,6 +4,7 @@ package com.twu.biblioteca.Unit;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.ListMovieOption;
 import com.twu.biblioteca.MovieShelf;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -23,13 +24,15 @@ public class ListMoviesOptionTest {
     MovieShelf movieShelf;
     @Mock
     Console console;
+    @Mock
+    UserSessionManager userSessionManager;
 
     private String movieString = "Name || Year || Director || Rating \nThe Big Lebowski || 1998 || Joel Coen || 10\n Sharknado || 2013 || Thunder Levin || 1\n";
 
 
     @Test
     public void printsTheListOfBooks(){
-        ListMovieOption listMovieOption = new ListMovieOption("4 - List Movies", console, movieShelf);
+        ListMovieOption listMovieOption = new ListMovieOption("4 - List Movies", console, userSessionManager, movieShelf);
         when(movieShelf.listMovies()).thenReturn(movieString);
         listMovieOption.run();
         verify(console).printLine(movieString);

@@ -21,13 +21,23 @@ public class showMenu {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void printsAMenu() {
-        systemInMock.provideLines("7");
+    public void doesntShowCheckoutandReturnOptionsWhenNotLoggedIn() {
+        systemInMock.provideLines("9");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        String[] strings = output.split("\n");
-        assertEquals("Please select a Menu Choice", strings[2]);
-        assertEquals("1 - List Books", strings[3]);
+        assertEquals(false, output.contains("Checkout a Book"));
+        assertEquals(false, output.contains("Checkout a Movie"));
+        assertEquals(false, output.contains("Return a Book"));
+        assertEquals(false, output.contains("Return a Movie"));
+        assertEquals(false, output.contains("Log Out"));
+    }
+
+    @Test
+    public void showsEverythingButLogInWhenLoggedIn(){
+        systemInMock.provideLines("7", "123-4567", "password", "9");
+        BibliotecaApp.main();
+        String output = systemOutRule.getLog();
+        assertEquals(false, output.contains("Log In\n8 - Log Out"));
     }
 
 

@@ -40,10 +40,14 @@ public class UserSessionManager {
     }
 
     public void logOut() throws NoUserException {
-        if (currentUser != null){
+        if (loggedIn()) {
             currentUser = null;
         } else {
             throw new NoUserException();
         }
+    }
+
+    public boolean loggedIn() {
+        return (currentUser != null);
     }
 }

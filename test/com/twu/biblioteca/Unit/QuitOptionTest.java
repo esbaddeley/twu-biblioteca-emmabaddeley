@@ -4,6 +4,7 @@ import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.ListOption;
 import com.twu.biblioteca.MenuOptions.QuitOption;
+import com.twu.biblioteca.User.UserSessionManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -22,10 +23,11 @@ public class QuitOptionTest {
     @Mock
     Console console;
     BookShelf bookShelf;
+    UserSessionManager userSessionManager;
 
     @Test
     public void printsAQuitMessage (){
-        QuitOption quitOption = new QuitOption("4 - Quit the Program", console);
+        QuitOption quitOption = new QuitOption("4 - Quit the Program", console, userSessionManager);
         quitOption.run();
         verify(console).printLine("Quitting the Program");
     }
