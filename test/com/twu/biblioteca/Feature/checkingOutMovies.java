@@ -6,15 +6,13 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
 
 /**
- * Created by emmabaddeley on 29/09/2016.
+ * Created by emmabaddeley on 02/10/2016.
  */
-public class listBooks {
+public class checkingOutMovies {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -23,15 +21,10 @@ public class listBooks {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void ListBooks() {
-        systemInMock.provideLines("1", "8");
+    public void hasACheckingOutBookMenuOption(){
+        systemInMock.provideLines("8");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Book Title || Author || Year Published\nAnimal Farm || George Orwell || 1945\nHarry Potter and the Philosophers Stone || J.K Rowling || 1997\nThe Prince || Niccolo Machiavelli || 1532\nWatership Down || Richard Adams || 1972\nPride and Prejudice || Jane Austen || 1813"));
+        assertEquals(true, output.contains("Checkout a Movie"));
     }
-
-
-
-
-
 }

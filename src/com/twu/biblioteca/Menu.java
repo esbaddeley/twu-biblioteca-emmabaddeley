@@ -42,6 +42,8 @@ public class Menu {
             console.printLine(INVALID_MENU_OPTION);
         } catch (NumberFormatException n){
             console.printLine(INVALID_MENU_OPTION);
+        } catch (IndexOutOfBoundsException i) {
+            console.printLine(INVALID_MENU_OPTION);
         }
     }
 

@@ -29,10 +29,9 @@ public class MenuTest {
 
     @Mock Console console;
     @Mock BookShelf bookShelf;
-    @Mock
-    ListOption listOption;
+    @Mock MenuOption menuOption;
 
-    public List<? extends MenuOption> menuOptions = Arrays.asList(listOption);
+    public List<MenuOption> menuOptions = Arrays.asList(menuOption, menuOption);
 
 
 
@@ -40,7 +39,7 @@ public class MenuTest {
     public void showAllMenuOptions() {
         System.out.print(menuOptions);
         Menu menu = new Menu(menuOptions);
-        when(listOption.getName()).thenReturn("1 - List Books");
+        when(menuOption.getName()).thenReturn("1 - List Books");
         menu.showOptions(console);
         verify(console).printLine("Please select a Menu Choice");
         verify(console).printLine("1 - List Books");

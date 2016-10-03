@@ -43,6 +43,7 @@ public class BookShelf {
             books.put(newBook.getTitle(), newBook);
         }
     }
+
     private Book findBook(String title) throws NoBookException {
         Book book = books.get(title);
         if (book != null) {
