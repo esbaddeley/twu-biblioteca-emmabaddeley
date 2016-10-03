@@ -6,6 +6,7 @@ package com.twu.biblioteca.MenuOptions;
 public interface MenuOption {
 
     String getName();
+
     void run();
 
 
