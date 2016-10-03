@@ -27,14 +27,14 @@ public class MenuBuilderTest {
 
     @Test
     public void buildsAMenuOfOptions(){
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Quit the Program");
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Quit the Program");
         List<? extends MenuOption>  menuOptions = menuBuilder.build();
         assertEquals("1 - List Books", (menuOptions.get(0)).getName());
         assertEquals("2 - Checkout a Book", (menuOptions.get(1)).getName());
         assertEquals("3 - Return a Book", (menuOptions.get(2)).getName());
         assertEquals("4 - List Movies", (menuOptions.get(3)).getName());
         assertEquals("5 - Checkout a Movie", (menuOptions.get(4)).getName());
-        assertEquals("6 - Quit the Program", (menuOptions.get(4)).getName());
+        assertEquals("6 - Quit the Program", (menuOptions.get(5)).getName());
     }
 
 

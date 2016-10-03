@@ -30,10 +30,10 @@ public class checkingOutMovies {
 
     @Test
     public void promptsTheUserForATitle () {
-        systemInMock.provideLines("5", "Sharknado", "4", "6");
+        systemInMock.provideLines("5", "Sharknado", "6");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Please enter the title of the movie you'd like to checkout"));
+        assertEquals(true, output.contains("Please enter the name of the movie you'd like to checkout"));
     }
 
     @Test

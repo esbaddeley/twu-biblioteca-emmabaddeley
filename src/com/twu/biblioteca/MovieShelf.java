@@ -44,7 +44,15 @@ public class MovieShelf {
         }
     }
 
-    public void checkOutMovie(String movieToCheckout) {
-        throw new UnsupportedOperationException();
+    public void checkOutMovie(String movieToCheckout) throws NoMovieException {
+        findMovie(movieToCheckout).checkOut();
+    }
+
+    private Movie findMovie(String movieToCheckout) throws NoMovieException {
+        Movie movie = movies.get(movieToCheckout);
+        if (movie != null) {
+            return movie;
+        }
+        throw new NoMovieException();
     }
 }

@@ -1,14 +1,13 @@
 package com.twu.biblioteca.Unit;
 
-import com.twu.biblioteca.BookShelf;
-import com.twu.biblioteca.Console;
+import com.twu.biblioteca.*;
 import com.twu.biblioteca.MenuOptions.CheckOutMovieOption;
 import com.twu.biblioteca.MenuOptions.CheckOutOption;
-import com.twu.biblioteca.MovieShelf;
-import com.twu.biblioteca.NoBookException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +18,8 @@ import static org.mockito.Mockito.when;
 /**
  * Created by emmabaddeley on 03/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
+
 public class CheckOutMovieOptionTest {
 
     @Mock
@@ -39,11 +40,11 @@ public class CheckOutMovieOptionTest {
     @Test
     public void promptForCheckOutChoice() throws IOException {
         checkOutMovieOption.run();
-        verify(console).printLine("Please enter the title of the movie you'd like to checkout");
+        verify(console).printLine("Please enter the name of the movie you'd like to checkout");
     }
 
     @Test
-    public void checksOutBook() throws IOException, NoBookException {
+    public void checksOutMovie() throws IOException, NoMovieException {
         when(reader.readLine()).thenReturn("Sharknado");
         checkOutMovieOption.run();
         verify(movieShelf).checkOutMovie("Sharknado");

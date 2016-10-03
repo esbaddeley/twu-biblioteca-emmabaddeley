@@ -4,6 +4,7 @@ package com.twu.biblioteca.Unit;
 import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.MovieShelf;
 import com.twu.biblioteca.NoBookException;
+import com.twu.biblioteca.NoMovieException;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class MovieShelfTest {
     }
 
     @Test
-    public void checksOutAMovie() throws NoBookException {
+    public void checksOutAMovie() throws NoMovieException {
         MovieShelf movieShelf = new MovieShelf(movies);
         movieShelf.checkOutMovie("Sharknado");
         assertEquals(false, (movieShelf.listMovies()).contains("Sharknado || 2013 || Thunder Levin || 1"));

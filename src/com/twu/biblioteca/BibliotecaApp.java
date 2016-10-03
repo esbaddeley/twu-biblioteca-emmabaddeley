@@ -25,7 +25,7 @@ public class BibliotecaApp {
         MovieShelf movieShelf = new MovieShelf(movies);
         Console console = new Console();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Quit the Program" );
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Quit the Program" );
         return menuBuilder.build();
     }
 

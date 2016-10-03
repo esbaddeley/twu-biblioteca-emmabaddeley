@@ -35,7 +35,8 @@ public class Movie {
         return checkedIn;
     }
 
-    public void checkOut() {
-        throw new UnsupportedOperationException();
+    public void checkOut() throws NoMovieException {
+        if (!checkedIn) {throw new NoMovieException();}
+        else { checkedIn = false;}
     }
 }

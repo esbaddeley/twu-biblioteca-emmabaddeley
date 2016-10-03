@@ -1,10 +1,9 @@
 package com.twu.biblioteca.MenuOptions;
 
-import com.twu.biblioteca.BookShelf;
-import com.twu.biblioteca.Console;
-import com.twu.biblioteca.MovieShelf;
+import com.twu.biblioteca.*;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 /**
  * Created by emmabaddeley on 03/10/2016.
@@ -23,6 +22,22 @@ public class CheckOutMovieOption extends MenuOptionMaster implements MenuOption 
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException();
+        try {
+            movieShelf.checkOutMovie(movieNamePrompt("Please enter the name of the movie you'd like to checkout"));
+            output.printLine("Thank you! Enjoy the movie");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (NoMovieException e) {
+            output.printLine(e.showCheckOutErrorMessage());
+        }
+    }
+
+    private String movieNamePrompt(String message) throws IOException {
+        output.printLine(message);
+        return GetUserChoice();
+    }
+
+    private String GetUserChoice() throws IOException {
+        return reader.readLine();
     }
 }
