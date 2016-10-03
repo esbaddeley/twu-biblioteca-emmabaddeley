@@ -23,16 +23,16 @@ public class keepPromptingMenuOptions {
 
     @Test
     public void promptWithAnotherMenuChoice() {
-        systemInMock.provideLines("1", "4");
+        systemInMock.provideLines("1", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         String[] strings = output.split("\n");
-        assertEquals(true, strings[13].contains("Please select a Menu Choice"));
+        assertEquals(true, strings[16].contains("Please select a Menu Choice"));
     }
 
     @Test
     public void programQuitsWhenSelected() {
-        systemInMock.provideLines("4");
+        systemInMock.provideLines("7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Quitting the Program"));

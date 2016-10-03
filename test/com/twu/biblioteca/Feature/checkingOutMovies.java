@@ -22,7 +22,7 @@ public class checkingOutMovies {
 
     @Test
     public void hasACheckingOutMovieMenuOption(){
-        systemInMock.provideLines("6");
+        systemInMock.provideLines("7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Checkout a Movie"));
@@ -30,7 +30,7 @@ public class checkingOutMovies {
 
     @Test
     public void promptsTheUserForATitle () {
-        systemInMock.provideLines("5", "Sharknado", "6");
+        systemInMock.provideLines("5", "Sharknado", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Please enter the name of the movie you'd like to checkout"));
@@ -38,7 +38,7 @@ public class checkingOutMovies {
 
     @Test
     public void bookNoLongerAppearsInList() {
-        systemInMock.provideLines("5", "Sharknado", "4", "6");
+        systemInMock.provideLines("5", "Sharknado", "4", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(false, output.contains("Sharknado || 2013 || Thunder Levin || 1"));
@@ -46,7 +46,7 @@ public class checkingOutMovies {
 
     @Test
     public void successfulCheckOutMessage() {
-        systemInMock.provideLines("5", "Sharknado", "6");
+        systemInMock.provideLines("5", "Sharknado", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Thank you! Enjoy the movie"));
@@ -54,7 +54,7 @@ public class checkingOutMovies {
 
     @Test
     public void unsuccessfulCheckoutMessage() {
-        systemInMock.provideLines("5", "The Frog", "6");
+        systemInMock.provideLines("5", "The Frog", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("That movie is not available"));

@@ -22,7 +22,7 @@ public class promptInvalidMenuOption {
 
     @Test
     public void promptInvalidMenuOption() {
-        systemInMock.provideLines("Arghghgh!", "4");
+        systemInMock.provideLines("Arghghgh!", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Invalid Menu Option, please try again"));

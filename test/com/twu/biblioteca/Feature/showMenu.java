@@ -22,7 +22,7 @@ public class showMenu {
 
     @Test
     public void printsAMenu() {
-        systemInMock.provideLines("4");
+        systemInMock.provideLines("7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         String[] strings = output.split("\n");

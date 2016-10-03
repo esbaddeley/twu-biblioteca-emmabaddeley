@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.sun.deploy.util.StringUtils;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import com.twu.biblioteca.Exceptions.NoMovieException;
 
 import java.util.Arrays;
@@ -41,7 +42,8 @@ public class Movie {
         else { checkedIn = false;}
     }
 
-    public void returnMovie() {
-        throw new UnsupportedOperationException();
+    public void returnMovie() throws NoMovieException {
+        if (checkedIn) {throw new NoMovieException();}
+        else {checkedIn = true;}
     }
 }

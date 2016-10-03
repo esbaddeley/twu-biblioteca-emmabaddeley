@@ -57,7 +57,7 @@ public class MovieShelf {
         throw new NoMovieException();
     }
 
-    public void returnMovie(String sharknado) {
-        throw new UnsupportedOperationException();
+    public void returnMovie(String name) throws NoMovieException {
+        findMovie(name).returnMovie();
     }
 }

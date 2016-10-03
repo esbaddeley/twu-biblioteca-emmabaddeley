@@ -26,7 +26,7 @@ public class printWelcomeMessage {
 
     @Test
     public void printsAWelcomeMessage() {
-        systemInMock.provideLines("4");
+        systemInMock.provideLines("7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         String[] strings = output.split("\n");

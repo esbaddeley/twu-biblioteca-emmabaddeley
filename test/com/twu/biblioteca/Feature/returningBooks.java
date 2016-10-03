@@ -22,7 +22,7 @@ public class returningBooks {
 
     @Test
     public void hasAReturningBookMenuOption(){
-        systemInMock.provideLines("4");
+        systemInMock.provideLines("7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Return a Book"));
@@ -30,7 +30,7 @@ public class returningBooks {
 
     @Test
     public void promptsTheUserForATitle(){
-        systemInMock.provideLines("3", "The Prince", "4");
+        systemInMock.provideLines("3", "The Prince", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Please enter the title of the book you'd like to return"));
@@ -38,7 +38,7 @@ public class returningBooks {
 
     @Test
     public void returnedBookAppearsInList() {
-        systemInMock.provideLines("2", "The Prince", "1", "3", "The Prince", "1", "4");
+        systemInMock.provideLines("2", "The Prince", "1", "3", "The Prince", "1", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("The Prince || Niccolo Machiavelli || 1532"));
@@ -46,7 +46,7 @@ public class returningBooks {
 
     @Test
     public void successfulReturnMessage() {
-        systemInMock.provideLines("2", "The Prince", "3", "The Prince", "4");
+        systemInMock.provideLines("2", "The Prince", "3", "The Prince", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Thank you for returning the book"));
@@ -54,7 +54,7 @@ public class returningBooks {
 
     @Test
     public void unsuccessfulReturnMessage() {
-        systemInMock.provideLines("3", "The Prince", "4");
+        systemInMock.provideLines("3", "The Prince", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("That is not a valid book to return"));

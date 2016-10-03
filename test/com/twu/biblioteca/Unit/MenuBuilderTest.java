@@ -27,7 +27,7 @@ public class MenuBuilderTest {
 
     @Test
     public void buildsAMenuOfOptions(){
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie","6 - Return a Movie", "7 - Quit the Program");
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie","6 - Return a Movie","7 - Quit the Program");
         List<? extends MenuOption>  menuOptions = menuBuilder.build();
         assertEquals("1 - List Books", (menuOptions.get(0)).getName());
         assertEquals("2 - Checkout a Book", (menuOptions.get(1)).getName());

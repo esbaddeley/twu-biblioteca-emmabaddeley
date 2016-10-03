@@ -8,4 +8,7 @@ public class NoMovieException extends Exception {
     public String showCheckOutErrorMessage() {
         return "That movie is not available";
     }
+
+    public String showReturnErrorMessage() { return "That is not a valid movie to return";
+    }
 }

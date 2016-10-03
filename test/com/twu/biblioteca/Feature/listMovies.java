@@ -22,7 +22,7 @@ public class listMovies {
 
     @Test
     public void ListMovies() {
-        systemInMock.provideLines("4", "5");
+        systemInMock.provideLines("4", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("Name || Year || Director || Rating\nSharknado || 2013 || Thunder Levin || 1\nThe Big Lebowski || 1998 || Joel Coen || 10\n"));

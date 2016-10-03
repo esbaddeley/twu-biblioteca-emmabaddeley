@@ -36,7 +36,8 @@ public class MenuBuilder {
         menuOptions.add(new ReturnOption(options.get(2), console, bookShelf, reader));
         menuOptions.add(new ListMovieOption(options.get(3), console, movieShelf));
         menuOptions.add(new CheckOutMovieOption(options.get(4), console, movieShelf, reader));
-        menuOptions.add(new QuitOption(options.get(5), console));
+        menuOptions.add(new ReturnMovieOption(options.get(5), console, movieShelf, reader));
+        menuOptions.add(new QuitOption(options.get(6), console));
         return menuOptions;
     }
 }

@@ -54,7 +54,7 @@ public class returningMovies {
 
     @Test
     public void unsuccessfulReturnMessage() {
-        systemInMock.provideLines("5", "Sharknado", "7");
+        systemInMock.provideLines("6", "Sharknado", "7");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
         assertEquals(true, output.contains("That is not a valid movie to return"));
