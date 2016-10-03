@@ -1,6 +1,7 @@
 package com.twu.biblioteca.MenuOptions;
 
 import com.twu.biblioteca.*;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

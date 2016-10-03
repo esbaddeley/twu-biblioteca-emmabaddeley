@@ -1,8 +1,9 @@
 package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.*;
+import com.twu.biblioteca.Exceptions.NoBookException;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 import com.twu.biblioteca.MenuOptions.CheckOutMovieOption;
-import com.twu.biblioteca.MenuOptions.CheckOutOption;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

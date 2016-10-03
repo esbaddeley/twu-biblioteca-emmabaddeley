@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.sun.deploy.util.StringUtils;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,5 +55,9 @@ public class MovieShelf {
             return movie;
         }
         throw new NoMovieException();
+    }
+
+    public void returnMovie(String sharknado) {
+        throw new UnsupportedOperationException();
     }
 }

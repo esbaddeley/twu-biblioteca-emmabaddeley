@@ -1,10 +1,9 @@
 package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.BookShelf;
-import com.twu.biblioteca.NoBookException;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.twu.biblioteca.MenuOptions;
 
 import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
-import com.twu.biblioteca.NoBookException;
+import com.twu.biblioteca.Exceptions.NoBookException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

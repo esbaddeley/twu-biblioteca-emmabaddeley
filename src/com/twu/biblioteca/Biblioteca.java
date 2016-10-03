@@ -36,7 +36,7 @@ public class Biblioteca {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } while (!choice.equals("6"));
+        } while (!choice.equals("7"));
     }
 
 

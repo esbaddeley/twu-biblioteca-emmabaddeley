@@ -2,9 +2,8 @@ package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
-import com.twu.biblioteca.MenuOptions.CheckOutOption;
 import com.twu.biblioteca.MenuOptions.ReturnOption;
-import com.twu.biblioteca.NoBookException;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

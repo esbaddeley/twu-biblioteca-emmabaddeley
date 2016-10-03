@@ -1,7 +1,7 @@
 package com.twu.biblioteca.Unit;
 
 import com.twu.biblioteca.Book;
-import com.twu.biblioteca.NoBookException;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

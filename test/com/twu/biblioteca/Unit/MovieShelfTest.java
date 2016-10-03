@@ -2,9 +2,9 @@ package com.twu.biblioteca.Unit;
 
 
 import com.twu.biblioteca.BookShelf;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import com.twu.biblioteca.MovieShelf;
-import com.twu.biblioteca.NoBookException;
-import com.twu.biblioteca.NoMovieException;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -31,5 +31,13 @@ public class MovieShelfTest {
         MovieShelf movieShelf = new MovieShelf(movies);
         movieShelf.checkOutMovie("Sharknado");
         assertEquals(false, (movieShelf.listMovies()).contains("Sharknado || 2013 || Thunder Levin || 1"));
+    }
+
+    @Test
+    public void returnsAMovie() throws NoMovieException {
+        MovieShelf movieShelf = new MovieShelf(movies);
+        movieShelf.checkOutMovie("Sharknado");
+        movieShelf.returnMovie("Sharknado");
+        assertEquals(true, (movieShelf.listMovies()).contains("Sharknado || 2013 || Thunder Levin || 1"));
     }
 }

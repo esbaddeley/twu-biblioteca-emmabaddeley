@@ -1,8 +1,10 @@
 package com.twu.biblioteca.Unit;
 
 
+import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Exceptions.NoBookException;
 import com.twu.biblioteca.Movie;
-import com.twu.biblioteca.NoMovieException;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -25,5 +27,13 @@ public class MovieTest {
         Movie movie = new Movie(detailString);
         movie.checkOut();
         assertEquals(false, movie.isCheckedIn());
+    }
+
+    @Test
+    public void movieCanBeReturned() throws NoMovieException {
+        Movie movie = new Movie(detailString);
+        movie.checkOut();
+        movie.returnMovie();
+        assertEquals(true, movie.isCheckedIn());
     }
 }

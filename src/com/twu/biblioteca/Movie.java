@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.sun.deploy.util.StringUtils;
+import com.twu.biblioteca.Exceptions.NoMovieException;
 
 import java.util.Arrays;
 
@@ -38,5 +39,9 @@ public class Movie {
     public void checkOut() throws NoMovieException {
         if (!checkedIn) {throw new NoMovieException();}
         else { checkedIn = false;}
+    }
+
+    public void returnMovie() {
+        throw new UnsupportedOperationException();
     }
 }
