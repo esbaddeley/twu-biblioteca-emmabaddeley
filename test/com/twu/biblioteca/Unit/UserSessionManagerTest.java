@@ -42,5 +42,13 @@ public class UserSessionManagerTest {
         assertEquals(userSessionManager.getCurrentUser(), user);
     }
 
+    @Test
+    public void successfulLogInMessage() throws NoUserException {
+        UserSessionManager userSessionManager = new UserSessionManager(users);
+        when(user.credentialsMatch("123-4567", "password")).thenReturn(true);
+        when(user.getNumber()).thenReturn("123-4567");
+        assertEquals(userSessionManager.logIn("123-4567", "password"), "123-4567");
+    }
+
 
 }

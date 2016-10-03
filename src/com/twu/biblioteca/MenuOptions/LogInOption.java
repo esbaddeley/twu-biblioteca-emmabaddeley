@@ -14,6 +14,7 @@ public class LogInOption extends MenuOptionMaster implements MenuOption {
 
     private static final String LIBRARY_NUMBER_PROMPT = "Please enter your library number";
     private static final String PASSWORD_PROMPT = "Please enter your password";
+    private static final String LOG_IN_SUCCESS = "Successfully logged in as ";
     private UserSessionManager userSessionManager;
     private BufferedReader reader;
 
@@ -28,11 +29,11 @@ public class LogInOption extends MenuOptionMaster implements MenuOption {
         try {
             String number = libraryNumberPrompt();
             String password = passwordPrompt();
-            userSessionManager.logIn(number, password);
+            output.printLine(LOG_IN_SUCCESS + (userSessionManager.logIn(number, password)));
         } catch (IOException i){
             i.printStackTrace();
         } catch (NoUserException u){
-            u.showLoginErrorMessage();
+            output.printLine(u.showLoginErrorMessage());
         }
     }
 

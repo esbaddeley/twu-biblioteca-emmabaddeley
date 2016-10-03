@@ -16,4 +16,10 @@ public class UserTest {
         assertEquals(true, user.credentialsMatch("123-4567", "password"));
     }
 
+    @Test
+    public void returnsLibraryNumber(){
+        User user = new User("123-4567", "password");
+        assertEquals(user.getNumber(), "123-4567");
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.twu.biblioteca.User;
 
+import java.util.Objects;
+
 /**
  * Created by emmabaddeley on 03/10/2016.
  */
@@ -14,8 +16,15 @@ public class User {
     }
 
     public boolean credentialsMatch(String number, String enteredPassword) {
-        return ((number == libraryNumber) && (password == enteredPassword));
+        return ((Objects.equals(number, libraryNumber)) && (Objects.equals(enteredPassword, password)));
     }
 
 
+    public String getNumber() {
+        return libraryNumber;
+    }
+
+    public String getPassword(){
+        return password;
+    }
 }

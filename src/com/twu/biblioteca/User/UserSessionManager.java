@@ -17,18 +17,19 @@ public class UserSessionManager {
         this.users = users;
     };
 
-    public void logIn(String number, String password) throws NoUserException {
+    public String logIn(String number, String password) throws NoUserException {
         currentUser = findUser(number, password);
         if (currentUser == null) {
             throw new NoUserException();
         }
+        return currentUser.getNumber();
     }
 
     private User findUser(String number, String password) {
         User foundUser = null;
         for (User user : users){
             if (user.credentialsMatch(number, password)) {
-               foundUser = user; 
+               foundUser = user;
             }
         }
         return foundUser;

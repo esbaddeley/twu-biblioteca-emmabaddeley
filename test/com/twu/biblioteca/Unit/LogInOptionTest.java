@@ -46,4 +46,14 @@ public class LogInOptionTest {
         verify(userSessionManager).logIn("123-4567", "password");
     }
 
+    @Test
+    public void returnsASuccessfulLogInMessage() throws NoUserException, IOException {
+        when(reader.readLine()).thenReturn("123-4567", "password");
+        when(userSessionManager.logIn("123-4567", "password")).thenReturn("123-4567");
+        LogInOption logInOption = new LogInOption("7 - Log In", console, userSessionManager, reader);
+        logInOption.run();
+        verify(console).printLine("Successfully logged in as 123-4567");
+
+    }
+
 }

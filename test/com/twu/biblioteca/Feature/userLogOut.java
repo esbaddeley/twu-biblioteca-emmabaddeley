@@ -12,7 +12,7 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emp
 /**
  * Created by emmabaddeley on 03/10/2016.
  */
-public class UserLogIn {
+public class userLogOut {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
@@ -25,14 +25,6 @@ public class UserLogIn {
         systemInMock.provideLines("8");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Log In"));
-    }
-
-    @Test
-    public void hasAMessageOnSuccessfulLogin(){
-        systemInMock.provideLines("7", "123-4567", "password", "8");
-        BibliotecaApp.main();
-        String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Successfully logged in as 123-4567"));
+        assertEquals(true, output.contains("Log Out"));
     }
 }
