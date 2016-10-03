@@ -5,7 +5,9 @@ import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.ListMovieOption;
 import com.twu.biblioteca.MovieShelf;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -13,6 +15,8 @@ import static org.mockito.Mockito.when;
 /**
  * Created by emmabaddeley on 02/10/2016.
  */
+@RunWith(MockitoJUnitRunner.class)
+
 public class ListMoviesOptionTest {
 
     @Mock

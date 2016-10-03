@@ -4,6 +4,7 @@ import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.MenuOptions.MenuBuilder;
 import com.twu.biblioteca.MenuOptions.MenuOption;
+import com.twu.biblioteca.MovieShelf;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -19,18 +20,20 @@ public class MenuBuilderTest {
 
     @Mock
     BookShelf bookShelf;
+    MovieShelf movieShelf;
     Console console;
     BufferedReader reader;
 
 
     @Test
     public void buildsAMenuOfOptions(){
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - Quit the Program");
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader,  "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Quit the Program");
         List<? extends MenuOption>  menuOptions = menuBuilder.build();
         assertEquals("1 - List Books", (menuOptions.get(0)).getName());
         assertEquals("2 - Checkout a Book", (menuOptions.get(1)).getName());
         assertEquals("3 - Return a Book", (menuOptions.get(2)).getName());
-        assertEquals("4 - Quit the Program", (menuOptions.get(3)).getName());
+        assertEquals("4 - List Movies", (menuOptions.get(3)).getName());
+        assertEquals("5 - Quit the Program", (menuOptions.get(4)).getName());
     }
 
 

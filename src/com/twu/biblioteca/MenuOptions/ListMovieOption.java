@@ -18,7 +18,7 @@ public class ListMovieOption extends MenuOptionMaster implements MenuOption {
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException();
+        output.printLine(movieShelf.listMovies());;
     }
 
 }

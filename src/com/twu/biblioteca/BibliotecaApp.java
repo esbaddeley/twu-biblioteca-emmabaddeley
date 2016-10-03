@@ -13,6 +13,8 @@ import java.util.List;
 public class BibliotecaApp {
 
     private static List<String> books = Arrays.asList("The Prince || Niccolo Machiavelli || 1532" , "Pride and Prejudice || Jane Austen || 1813", "Animal Farm || George Orwell || 1945", "Watership Down || Richard Adams || 1972", "Harry Potter and the Philosophers Stone || J.K Rowling || 1997");
+    private static List<String> movies = Arrays.asList("The Big Lebowski || 1998 || Joel Coen || 10", "Sharknado || 2013 || Thunder Levin || 1");
+
 
     public static void main() {
         new Biblioteca(new Console(), new Menu(buildMenu()), new BufferedReader(new InputStreamReader(System.in))).run();
@@ -20,9 +22,10 @@ public class BibliotecaApp {
 
     private static List<MenuOption> buildMenu(){
         BookShelf bookShelf = new BookShelf(books);
+        MovieShelf movieShelf = new MovieShelf(movies);
         Console console = new Console();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, console, reader, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - Quit the Program" );
+        MenuBuilder menuBuilder = new MenuBuilder(bookShelf, movieShelf, console, reader, "1 - List Books", "2 - Checkout a Book","3 - Return a Book", "4 - List Movies", "5 - Quit the Program" );
         return menuBuilder.build();
     }
 

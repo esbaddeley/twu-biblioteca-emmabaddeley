@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 public class MovieShelfTest {
 
     private List<String> movies = Arrays.asList("The Big Lebowski || 1998 || Joel Coen || 10", "Sharknado || 2013 || Thunder Levin || 1");
-    String movieString = "Name || Year || Director || Rating \nThe Big Lebowski || 1998 || Joel Coen || 10\nSharknado || 2013 || Thunder Levin || 1\n";
+    String movieString = "Name || Year || Director || Rating\nSharknado || 2013 || Thunder Levin || 1\nThe Big Lebowski || 1998 || Joel Coen || 10";
 
     @Test
-    public void returnsAListOfBooks(){
+    public void returnsAListOfMovies(){
         MovieShelf movieShelf = new MovieShelf(movies);
-        assertEquals(movieShelf.listMovies(), movieString);
+        assertEquals(movieString, movieShelf.listMovies());
     }
 }

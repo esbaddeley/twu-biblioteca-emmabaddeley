@@ -45,7 +45,8 @@ public class MenuTest {
         verify(console).printLine("1 - List Books");
         verify(console).printLine("2 - Checkout a Book");
         verify(console).printLine("3 - Return a Book");
-        verify(console).printLine("4 - Quit the Program");
+        verify(console).printLine("4 - List Movies");
+        verify(console).printLine("8 - Quit the Program");
 
     }
 

@@ -21,10 +21,10 @@ public class listMovies {
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 
     @Test
-    public void ListBooks() {
-        systemInMock.provideLines("1", "8");
+    public void ListMovies() {
+        systemInMock.provideLines("4", "5");
         BibliotecaApp.main();
         String output = systemOutRule.getLog();
-        assertEquals(true, output.contains("Name || Year || Director || Rating \nThe Big Lebowski || 1998 || Joel Coen || 10\n Sharknado || 2013 || Thunder Levin || 1\n"));
+        assertEquals(true, output.contains("Name || Year || Director || Rating\nSharknado || 2013 || Thunder Levin || 1\nThe Big Lebowski || 1998 || Joel Coen || 10\n"));
     }
 }
