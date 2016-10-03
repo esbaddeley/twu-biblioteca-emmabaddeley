@@ -3,7 +3,8 @@ package com.twu.biblioteca.Unit;
 import com.twu.biblioteca.BookShelf;
 import com.twu.biblioteca.Console;
 import com.twu.biblioteca.Menu;
-import com.twu.biblioteca.MenuOptions.ListOption;
+import com.twu.biblioteca.MenuOptions.CheckOutOption;
+import com.twu.biblioteca.MenuOptions.MenuOption;
 import com.twu.biblioteca.MenuOptions.MenuBuilder;
 import com.twu.biblioteca.MenuOptions.MenuOption;
 import org.junit.Before;
@@ -13,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,16 +32,25 @@ public class MenuTest {
     @Mock Console console;
     @Mock BookShelf bookShelf;
     @Mock MenuOption menuOption;
+    @Mock CheckOutOption checkoutOption;
 
-    public List<MenuOption> menuOptions = Arrays.asList(menuOption, menuOption);
+    public List<MenuOption> menuOptions = new ArrayList<>();
 
+    @Before
+    public void initialize(){
+        menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
+        menuOptions.add(menuOption);
+    }
 
 
     @Test
     public void showAllMenuOptions() {
-        System.out.print(menuOptions);
         Menu menu = new Menu(menuOptions);
-        when(menuOption.getName()).thenReturn("1 - List Books");
+        when(menuOption.getName()).thenReturn("1 - List Books", "2 - Checkout a Book", "3 - Return a Book", "4 - List Movies", "5 - Checkout a Movie", "6 - Quit the Program");
         menu.showOptions(console);
         verify(console).printLine("Please select a Menu Choice");
         verify(console).printLine("1 - List Books");
@@ -55,6 +66,7 @@ public class MenuTest {
     public void executeMenuOption() {
         Menu menu = new Menu(menuOptions);
         menu.executeOption("1", console);
+        verify(menuOption).run();
     }
 
 
