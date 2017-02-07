@@ -8,9 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by emmabaddeley on 29/09/2016.
- */
+
 public class BookShelf {
 
     private Map<String,Book> books = new HashMap<>();

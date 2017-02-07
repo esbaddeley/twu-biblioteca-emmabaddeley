@@ -42,7 +42,7 @@ public class BibliotecaTest {
 
     @Test
     public void getUserInput() throws IOException {
-        when(reader.readLine()).thenReturn("7");
+        when(reader.readLine()).thenReturn("9");
         biblioteca.run();
         verify(reader).readLine();
     }
